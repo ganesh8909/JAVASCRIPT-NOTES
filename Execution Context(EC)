@@ -1,0 +1,84 @@
+>JS is a synchronous single threaded language >> JS executes only one command at a time in a specific order.
+>As soon as we run the js program global execution context is created. 
+> Everything in JS happens inside an execution context.EC means we can assume like a big box in which whole code is executed.
+> Ec has two components:
+           *Memory component or variable environments: It is an environment in which all the variables and functions are stored as key-value pairs.
+           *Code component or  Thread of execution: It is a thread of execution in which whole code is executed at a time.
+>EC is created in two phases:
+           *Memory creation phase: Memory is reserved to variables and functions.
+                                  >> for variables value is undefined.
+                                  >> for functions whole code of that function is stored.
+           *Code execution phase: >>Values are assigned to  variables if instantiated
+                                  >>for functions execution context is created again and then the values are assigned after execution.
+*>We may have multiple function calls with in the program. So CALLSTACK maintains the order of execution of execution context.
+>CALL STACK  can also be called as
+           *Call stack
+           *Execution context stack
+           *Program counter
+           *Control stack
+           *Runtime stack
+           *Machine stack  
+*>Hoisting: It is a phenomena in JS in which we can access the variables and functions before initializing.
+            Example:
+            1) This is normal way of declaration
+                    var x=7;
+                    function getName(){
+                             Console.log("Namaste JS");
+                    }
+                    getName();           
+                    Console.log(x);       
+                    Console.log(getName); //prints whole function
+
+           output: Namaste JS
+                   7
+                   function getName(){
+                             Console.log("Namaste JS");
+                    }
+
+                2) This is Hoisting check!!!!
+                  getName();
+                  Console.log(x);       
+                  Console.log(getName);
+                  var x=7;
+                  function getName(){
+                             Console.log("Namaste JS");
+                    }
+
+          output:Namaste JS
+                  undefined    //Before code execution starts, memory is allocated to variables and functions. So for variables undefined is value.10 
+                  function getName(){
+                             Console.log("Namaste JS");
+                    }
+                    
+>Types of functions:
+    >>Pure function:
+        var getName(){
+              Console.log("Namsthe JS")
+         }
+  
+    >>arrow function:
+        getName();   //we encounter error as getName is not function to call. Its a variable.
+        Console.log(x);       
+        Console.log(getName);//If we execute by removing the first line /getName()/ then we get undefined as it is a variable which is printing before initialized it.
+        var x=7;
+        var getName=()=>{
+              Console.log("Namsthe JS")
+           }
+
+  output: error:getname 
+
+    >>another method
+        getName();   //we encounter error as getName is not function to call. Its a variable.
+        Console.log(x);       
+        Console.log(getName);//If we execute by removing the first line /getName()/ then we get undefined as it is a variable which is printing before initialized it.
+        var x=7;
+        var getName=function(){
+             Console.log("Namsthe JS")
+            }
+>Only pure functions outputs the same function as we saw in the example of hoisting above..(ex1,ex2)
+
+
+
+
+
+          
